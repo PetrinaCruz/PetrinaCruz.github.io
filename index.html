@@ -4,18 +4,30 @@
   <meta charset="utf-8">
    <title>CNIT 131H HW #5</title>
   <meta name="description" content="Using CSS in a website">
+
+<style>
+<!--
+.flashgroup{
+border:3px solid #0E3A89;
+}
+-->
+</style>
+
 </head>
 <body style="background-image:url(pixel-heart.png); background-color=#E5E7E9;">
 <header><h1 style="text-align:center; color: #D01950;">Why Boba Tea Has Become My Favorite Drink</h1></header>
-<br>
-<h2 style="text-align:center; color: #1974D0;">My Search for Comfort in Uneasy Times</h2>
+<figure style="text-align: center">
+<img id="flash0" class="flashgroup" src="Boba Corgi.jpg" alt="corgi in sunglasses with boba tea">
+<figcaption>Matcha the corgi loves his Boba Tea!</figcaption>
+</figure>
+<h2 style="text-align:center; color: #0E3A89;">My Search for Comfort in Uneasy Times</h2>
 <p><span style="font-size:1.5em; color: #D01950;"><strong>A</strong></span>s the pandemic rolled into it's second year and the realization that COVID was probably here to stay in one form or another started sinking in, I made the decision to embrace the new "normal" and stop waiting for the return of the pre-COVID 19 world. That meant accepting that remote work/school was here to stay for the forseeable future and while I am currently helping to care for an ill parent, I would need to continue to distance myself from large gatherings to help avoid getting infected. In a pre-pandemic world I loved to travel and visit new places, but now my pleasures needed to be simpler and closer to home. I live in a great San Francisco neighborhood with lots to see and do. There's a recreation space where they host outside activities like yoga or a mobile gym. Some nights and weekends bands play for spectators who set up blankets on the green. And although it has been tough, many restaurants and cafes have managed to weather the storm that is COVID-19 and keep their doors open to serve the hungry public. I decided to find my "go-to" place.</p>
 <br>
-<h3 style="text-align:right; color: #1974D0;"><em>...Then I Found My Boba Cafe</em></h3>
+<h3 style="text-align:right; color: #0E3A89;"><em>...Then I Found My Boba Cafe</em></h3>
 <p><span style="font-size:1.5em; color: #D01950;"><strong>I</strong></span> have always enjoyed Boba Tea, but it was something that I only had occasionally, and usually just while out with friends. There are several options for Boba Tea near me and one day I decided to try the cafe that opened up near my house a few years ago, <a href="https://www.urbanritualcafe.com/">Urban Ritual Cafe</a>. The cafe was almost always full before the dine-in restrictions, and currently there is almost always a line outside while people wait to pick-up their orders. They have a generous menu, so a Matcha Tea with Honey Boba seemed like a safe choice. The matcha tea was stronger than I had expected but it was good. The next visit I tried the Thai Tea with Honey Boba. This was a bit on the sweet side, but still good. I mentioned my new obsession with Urban Ritual to a friend and they said that I was misguided. According to her <a href="https://www.bobaguys.com/sf-bay-area-express">The Boba Guys</a> had the best Boba Tea in the City. I had been there once before, and didn't remember being overly impressed. But it's also close to me so I gave it a shot. I ordered the Jasmine Green Tea with Boba. It was good. The boba pearls were a little softer than those at Urban Ritual, but not a complete deal breaker. I decided that the true test would be to order the Jasmine Green Tea with Honey Boba at Urban Ritual to compare. It a matter of taste, but to me the tea at Urban Ritual tasted fresher. Since then, Urban Ritual has remained my "go-to" whenever I'm in need of a pick-me-up and it has yet to let me down.</p>
 <br>
 <footer style="border:2px solid #0F4780;">
-<h4>Note:<em> These are a few of my Favorite Tea Flavors at Urban Ritual</em></h4>
+<h3 style="color: #0E3A89"><em> These are a few of my Favorite Tea Flavors at Urban Ritual</em></h3>
 <p style="background-image:url(wallpaper.jpeg ); background-color=#EAECEE;"><strong>Jasmine Green Tea with Honey Boba</strong>: I mentioned this one earlier as my comparison tea for The Boba Guys and it became a favorite. This milk tea has a nice flavor that combines will with the honey boba.
 <br>
 </p>
@@ -25,3 +37,67 @@
 </footer>
 <p style=font-size:0.8em;> &copy; Petrina Cruz 2021</p>
 
+<script language="JavaScript1.2">
+
+/*
+Flashing Border image script (credit must stay enclosed)
+By javascriptkit.com
+For this and over 400+ JavaScripts,
+Visit http://www.javascriptkit.com
+*/
+
+//specify color of flash
+var flashcolor="#D01950"
+//specify speed (less is faster ie: 50)
+var speed=150
+
+/////No need to edit below here////
+var curborder=new Array()
+var increment=0
+var flashobject=new Array()
+
+if (document.all||document.getElementById){
+while (document.getElementById("flash"+increment)!=null){
+flashobject[increment]=document.getElementById? document.getElementById("flash"+increment).style : eval("document.all.flash"+increment+".style")
+curborder[increment]=0
+increment++
+}
+}
+
+
+function flash(which){
+if (curborder[which]==1){
+flashobject[which].borderLeftColor=flashcolor
+flashobject[which].borderBottomColor=flashobject[which].borderRightColor
+}
+else if (curborder[which]==2){
+flashobject[which].borderTopColor=flashcolor
+flashobject[which].borderLeftColor=flashobject[which].borderBottomColor
+}
+else if (curborder[which]==3){
+flashobject[which].borderRightColor=flashcolor
+flashobject[which].borderTopColor=flashobject[which].borderLeftColor
+}
+else if (curborder[which]==4){
+flashobject[which].borderBottomColor=flashcolor
+flashobject[which].borderRightColor=flashobject[which].borderTopColor
+}
+
+if (curborder[which]<=3)
+curborder[which]++
+else
+curborder[which]=1
+}
+
+if (document.all||document.getElementById){
+for (z=0;z<flashobject.length;z++){
+var temp='setInterval("flash('+z+')",'+speed+')'
+eval(temp)
+}
+}
+
+
+</script>
+
+</body>
+</html>
